@@ -8,6 +8,7 @@ const WeatherLocation = (props) => {
     <p>Longitude : {props.location.lon}</p>
     <p>Country : {props.location.country}</p>
     <p>Region : {props.location.region}</p>
+    
   </div>
   )
 }

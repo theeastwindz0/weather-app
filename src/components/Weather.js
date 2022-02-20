@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import styles from './Weather.module.css'
+import WeatherCurrent from "./WeatherCurrent";
 import WeatherLocation from "./WeatherLocation";
 const Weather = () => {
   const [search, setSearch] = useState("dehradun");
@@ -95,15 +96,15 @@ const Weather = () => {
       })
     };
 
-    // fetchWeatherData();
+    fetchWeatherData();
   }, []);
 
   return <div className={styles.Weather}>
     <div className={styles.weather_bg_image}/>
     <div className={styles.weather_text}>
      <WeatherLocation location={location}/>
+     <WeatherCurrent current={current}/>
       <div>
-
       </div>
     </div>
   </div>;
