@@ -94,3 +94,25 @@
 .weather_current_box_3{
     width: 30%;
 }
+
+.weather_forecast{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border:1px solid white;
+    height: 200px;
+}
+
+.weather_forecast_box{
+    border: 1px solid white;
+    text-align: center;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather_forecast_box >*{
+    margin: 3px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import styles from "./Weather.module.css";
 import WeatherCurrent from "./WeatherCurrent";
+import WeatherForecast from "./WeatherForecast";
 import WeatherLocation from "./WeatherLocation";
 const Weather = () => {
   const [search, setSearch] = useState("dehradun");
@@ -45,15 +46,32 @@ const Weather = () => {
     wind_kph: "",
     wind_mph: "",
   });
+
+  const [astro, setAstro] = useState({
+    moon_illumination: "",
+    moon_phase: "",
+    moonrise: "",
+    moonset: "",
+    sunrise: "",
+    sunset: "",
+  });
+
+  const [hourData,setHourData]=useState([]);
   useEffect(() => {
     const fetchWeatherData = async () => {
       const API_KEY = "5f19af61525c4e52a31114915221802";
-      const API_CALL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${search}`;
+      const API_CALL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=7`;
 
       const response = await fetch(API_CALL);
       const data = await response.json();
 
-      console.log("Test");
+      console.log(data.forecast.forecastday[0].hour);
+      let hourlyDataFunc=[];
+      for(let key in data.forecast.forecastday[0].hour)
+      {
+        hourlyDataFunc.push(data.forecast.forecastday[0].hour[key])
+      }
+      console.log(hourlyDataFunc[0]);
 
       setLocation({
         country: data.location.country,
@@ -94,13 +112,21 @@ const Weather = () => {
         wind_kph: data.current.wind_kph,
         wind_mph: data.current.wind_mph,
       });
+
+      setAstro({
+        moon_illumination: data.forecast.forecastday[0].astro.moon_illumination,
+        moon_phase: data.forecast.forecastday[0].astro.moon_phase,
+        moonrise: data.forecast.forecastday[0].astro.moonrise,
+        moonset: data.forecast.forecastday[0].astro.moonset,
+        sunrise: data.forecast.forecastday[0].astro.sunrise,
+        sunset: data.forecast.forecastday[0].astro.sunset,
+      });
     };
 
     fetchWeatherData();
   }, [search]);
 
   const searchData = (searchText) => {
-    console.log(searchText)
     setSearch(searchText);
   };
 
@@ -109,8 +135,8 @@ const Weather = () => {
       <div className={styles.weather_bg_image} />
       <div className={styles.weather_text}>
         <WeatherLocation location={location} searchData={searchData} />
-        <WeatherCurrent current={current} />
-        <div></div>
+        <WeatherCurrent current={current} astro={astro} />
+        <WeatherForecast current={current} />
       </div>
     </div>
   );
