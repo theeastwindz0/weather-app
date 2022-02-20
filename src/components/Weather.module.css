@@ -34,7 +34,7 @@
 
   filter: brightness(0.4);
 
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .weather_text {
