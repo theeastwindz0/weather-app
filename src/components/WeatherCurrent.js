@@ -13,9 +13,7 @@ const WeatherCurrent = (props) => {
   console.log(props.current);
   return (
     <div className={styles.weather_current}>
-      <div className={styles.weather_current_box_2}>
-        
-      </div>
+      <div className={styles.weather_current_box_2}></div>
       <div className={styles.weather_current_box_2}>
         <p>Last Updated : {props.current.last_updated}</p>
         <p>Current Time : </p>

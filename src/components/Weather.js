@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import styles from './Weather.module.css'
+import styles from "./Weather.module.css";
 import WeatherCurrent from "./WeatherCurrent";
 import WeatherLocation from "./WeatherLocation";
 const Weather = () => {
@@ -53,7 +53,7 @@ const Weather = () => {
       const response = await fetch(API_CALL);
       const data = await response.json();
 
-      console.log('Test');
+      console.log("Test");
 
       setLocation({
         country: data.location.country,
@@ -93,21 +93,27 @@ const Weather = () => {
         wind_dir: data.current.wind_dir,
         wind_kph: data.current.wind_kph,
         wind_mph: data.current.wind_mph,
-      })
+      });
     };
 
     fetchWeatherData();
-  }, []);
+  }, [search]);
 
-  return <div className={styles.Weather}>
-    <div className={styles.weather_bg_image}/>
-    <div className={styles.weather_text}>
-     <WeatherLocation location={location}/>
-     <WeatherCurrent current={current}/>
-      <div>
+  const searchData = (searchText) => {
+    console.log(searchText)
+    setSearch(searchText);
+  };
+
+  return (
+    <div className={styles.Weather}>
+      <div className={styles.weather_bg_image} />
+      <div className={styles.weather_text}>
+        <WeatherLocation location={location} searchData={searchData} />
+        <WeatherCurrent current={current} />
+        <div></div>
       </div>
     </div>
-  </div>;
+  );
 };
 
 export default Weather;
