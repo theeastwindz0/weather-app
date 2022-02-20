@@ -1,5 +1,5 @@
 .Weather {
-  position: relative;
+
 }
 
 .searching_box input[type="text"] {
@@ -27,14 +27,8 @@
 }
 
 .weather_bg_image {
-  background-image: url(../Images/Bacgkround_Image_01.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+ 
 
-  filter: brightness(0.4);
-
-  /* height: 100vh; */
 }
 
 .weather_text {
@@ -44,10 +38,10 @@
   color: white;
   width: 100%;
 
-  position: absolute;
-  top: 0;
-  left: 0;
-
+  background-image: url(../Images/Bacgkround_Image_01.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .weather_text > *,
