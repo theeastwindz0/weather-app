@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import styles from './Weather.module.css'
+import WeatherLocation from "./WeatherLocation";
 const Weather = () => {
   const [search, setSearch] = useState("dehradun");
   const [location, setLocation] = useState({
@@ -93,12 +95,17 @@ const Weather = () => {
       })
     };
 
-    fetchWeatherData();
+    // fetchWeatherData();
   }, []);
 
-  console.log(current.condition.icon.substring(2,current.condition.icon.length))
-  return <div>
-    {/* <img src={`https://${current.condition.icon.substring(2,current.condition.icon.length)}`}/> */}
+  return <div className={styles.Weather}>
+    <div className={styles.weather_bg_image}/>
+    <div className={styles.weather_text}>
+     <WeatherLocation location={location}/>
+      <div>
+
+      </div>
+    </div>
   </div>;
 };
 

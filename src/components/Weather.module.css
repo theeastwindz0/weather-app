@@ -1,0 +1,31 @@
+.Weather{
+    
+}
+
+.weather_bg_image{
+    background-image: url(../Images/Background_Image_02.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 1080px;
+
+    filter:brightness(0.3);
+}
+
+.weather_text{
+    color: white;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.weather_location{
+    border: 1px solid white;
+    font-size: 20px;
+
+    display: flex;
+    justify-content:space-around;
+}
