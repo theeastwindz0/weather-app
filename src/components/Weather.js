@@ -56,7 +56,7 @@ const Weather = () => {
     sunset: "",
   });
 
-  const [hourData,setHourData]=useState([]);
+  const [hourlyData,setHourlyData]=useState([]);
   useEffect(() => {
     const fetchWeatherData = async () => {
       const API_KEY = "5f19af61525c4e52a31114915221802";
@@ -65,14 +65,14 @@ const Weather = () => {
       const response = await fetch(API_CALL);
       const data = await response.json();
 
-      console.log(data.forecast.forecastday[0].hour);
       let hourlyDataFunc=[];
       for(let key in data.forecast.forecastday[0].hour)
       {
         hourlyDataFunc.push(data.forecast.forecastday[0].hour[key])
       }
-      console.log(hourlyDataFunc[0]);
-
+      
+      setHourlyData(hourlyDataFunc);
+      
       setLocation({
         country: data.location.country,
         lat: data.location.lat,
@@ -136,7 +136,7 @@ const Weather = () => {
       <div className={styles.weather_text}>
         <WeatherLocation location={location} searchData={searchData} />
         <WeatherCurrent current={current} astro={astro} />
-        <WeatherForecast current={current} />
+        <WeatherForecast current={current} hourlyData={hourlyData}/>
       </div>
     </div>
   );

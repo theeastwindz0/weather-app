@@ -29,12 +29,16 @@
     background-attachment: fixed;
     background-size: cover;
 
+
     height: 1080px;
 
-    filter:brightness(0.3);
+    filter:brightness(0.4);
 }
 
 .weather_text{
+    display: flex;
+    flex-direction: column;
+    
     color: white;
     width: 100%;
 
@@ -102,6 +106,12 @@
 
     border:1px solid white;
     height: 200px;
+
+    width: 95%;
+    overflow: auto;
+    margin: 10px;
+
+    align-self: center;
 }
 
 .weather_forecast_box{
@@ -111,6 +121,11 @@
 
     flex-direction: column;
     align-items: center;
+    margin: 1px;
+
+    font-size: 12px;
+
+    
 }
 
 .weather_forecast_box >*{
