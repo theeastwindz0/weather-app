@@ -20,11 +20,10 @@ const WeatherCurrent = (props) => {
       </div>
       <div className={styles.weather_current_box_2}>
         <p>Last Updated : {props.current.last_updated}</p>
-        <p>Current Time : </p>
         <p>Current Day : {current_day[props.current.is_day - 1]}</p>
       </div>
       <div className={styles.weather_current_box_1}>
-        <img src={`http:${props.current.condition.icon}`} />
+        <img src={`http:${props.current.condition.icon}`} alt='weather'/>
         <p>{props.current.condition.text}</p>
         <p>
           {props.current.temp_c} C / {props.current.temp_f} F

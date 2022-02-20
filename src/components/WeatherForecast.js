@@ -10,7 +10,7 @@ const WeatherForecast = (props) => {
             (
                 <div className={styles.weather_forecast_box} key={key}>
                     <p>{data.time.substring(data.time.length-5,data.time.length)}</p>
-                <img src={`http:${data.condition.icon}`} />
+                <img src={`http:${data.condition.icon}`} alt='weather '/>
                 <p>{data.condition.text}</p>
                 <p>
                   {data.temp_c} C / {data.temp_f} F

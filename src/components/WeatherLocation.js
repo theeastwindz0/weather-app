@@ -10,11 +10,6 @@ const WeatherLocation = (props) => {
   };
   return (
     <div className={styles.weather_location}>
-      <p>Name : {props.location.name}</p>
-      <p>Latitude : {props.location.lat}</p>
-      <p>Longitude : {props.location.lon}</p>
-      <p>Country : {props.location.country}</p>
-      <p>Region : {props.location.region}</p>
       <div className={styles.searching_box}>
         <input
           onChange={(event) => setSearch(event.target.value)}
@@ -22,6 +17,11 @@ const WeatherLocation = (props) => {
         />
         <button onClick={onSubmitHandler}>Submit</button>
       </div>
+      <p>Name : {props.location.name}</p>
+      <p>Latitude : {props.location.lat}</p>
+      <p>Longitude : {props.location.lon}</p>
+      <p>Country : {props.location.country}</p>
+      <p>Region : {props.location.region}</p>
     </div>
   );
 };

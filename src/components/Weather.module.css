@@ -1,133 +1,184 @@
-.searching_box input[type=text]
-{
-    width: 60%;
-    outline: none;
-    padding: 12px;
+.Weather {
+  position: relative;
+}
 
-    margin-right: 10px;
+.searching_box input[type="text"] {
+  width: 60%;
+  outline: none;
+  padding: 12px;
+
+  margin-right: 10px;
+}
+
+.searching_box button {
+  width: 30%;
+  padding: 13px;
+  outline: none;
+  border: none;
+
+  background-color: orange;
+  color: white;
+
+  cursor: pointer;
+}
+
+.searching_box button:hover {
+  background-color: orangered;
+}
+
+.weather_bg_image {
+  background-image: url(../Images/Bacgkround_Image_01.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+
+  filter: brightness(0.4);
+
+  height: 100vh;
+}
+
+.weather_text {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 
 }
 
-.searching_box button{
-    width: 30%;
-    padding: 13px;
-    outline: none;
-    border: none;
-
-    background-color: orange;
-    color: white;
-
-    cursor: pointer;
+.weather_text > *,
+.weather_current > * {
+  margin: 10px;
 }
 
-.searching_box button:hover{
-    background-color: orangered;
+.weather_location {
+  font-size: 20px;
+
+  display: flex;
+  justify-content: space-around;
+
+  align-items: center;
+
+  border: 1px solid white;
 }
 
-.weather_bg_image{
-    background-image: url(../Images/Background_Image_02.jpg);
+.weather_current {
+  display: flex;
+
+  justify-content: center;
+  text-align: center;
+
+  font-size: 18px;
+}
+
+.weather_current > * {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  border: 1px solid white;
+}
+
+.weather_current_box_1 {
+  width: 10%;
+}
+
+.weather_current_box_1 img {
+  width: 100px;
+}
+
+.weather_current_box_2 {
+  width: 20%;
+}
+
+.weather_current_box_3 {
+  width: 30%;
+}
+
+.weather_forecast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid white;
+  height: 200px;
+
+  width: 95%;
+  overflow: auto;
+  margin: 10px;
+
+  align-self: center;
+}
+
+.weather_forecast_box {
+  border: 1px solid white;
+  text-align: center;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  margin: 1px;
+
+  font-size: 12px;
+}
+
+.weather_forecast_box > * {
+  margin: 3px;
+}
+
+@media (max-width: 600px) {
+  .weather_text {
+    background-image: url(../Images/Background_Image_Mobile_01.jpg);
     background-attachment: fixed;
     background-size: cover;
-
-
-    height: 1080px;
-
-    filter:brightness(0.4);
-}
-
-.weather_text{
-    display: flex;
+    background-position: center;
+  }
+  .weather_location {
     flex-direction: column;
-    
-    color: white;
+  }
+
+  .weather_location > * {
+    margin: 10px 0;
+  }
+
+  .weather_current {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather_current > * {
+    width: 100%;
+  }
+
+  .weather_forecast {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .weather_forecast_box {
+    width: 90%;
+    margin: 10px 0;
+
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .searching_box {
     width: 100%;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-
-}
-
-.weather_text>* , .weather_current>*
-{
-    margin: 10px;
-}
-
-.weather_location{
-    font-size: 20px;
-
-    display: flex;
-    justify-content:space-around;
-
-    align-items: center;
-
-    border: 1px solid white;
-}
-
-.weather_current{
-    display: flex;
-
-    justify-content: center;
     text-align: center;
+    margin: 10px auto;
+  }
 
-    font-size: 18px;
-
-}
-
-.weather_current>*
-{
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
-    border: 1px solid white;
-}
-
-.weather_current_box_1{
-    width: 10%;
-}
-
-.weather_current_box_1 img{
-    width: 100px;
-}
-
-.weather_current_box_2{
+  .searching_box input[type="text"] {
+    margin: 0;
+    width: 75%;
+  }
+  .searching_box button {
     width: 20%;
-}
-
-.weather_current_box_3{
-    width: 30%;
-}
-
-.weather_forecast{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border:1px solid white;
-    height: 200px;
-
-    width: 95%;
-    overflow: auto;
-    margin: 10px;
-
-    align-self: center;
-}
-
-.weather_forecast_box{
-    border: 1px solid white;
-    text-align: center;
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
-    margin: 1px;
-
-    font-size: 12px;
-
-    
-}
-
-.weather_forecast_box >*{
-    margin: 3px;
+  }
 }
